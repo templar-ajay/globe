@@ -2,6 +2,7 @@
 
 import createGlobe, { COBEOptions } from "cobe";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useWindowWidth } from "@react-hook/window-size";
 
 import { cn } from "@/lib/utils";
 
@@ -47,6 +48,8 @@ export default function Globe({
   const pointerInteractionMovement = useRef(0);
   const [r, setR] = useState(0);
 
+  const windowWidth = useWindowWidth();
+
   const updatePointerInteraction = (value) => {
     pointerInteracting.current = value;
     if (canvasRef.current) {
@@ -78,6 +81,7 @@ export default function Globe({
   };
 
   useEffect(() => {
+    console.log("window", window);
     window.addEventListener("resize", onResize);
     onResize();
 
@@ -90,7 +94,7 @@ export default function Globe({
 
     setTimeout(() => (canvasRef.current!.style.opacity = "1"));
     return () => globe.destroy();
-  }, []);
+  }, [windowWidth]);
 
   return (
     <div
