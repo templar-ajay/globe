@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import type { Viewport } from "next";
+import { cn } from "@/lib/utils";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -36,7 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`p-2 ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "antialiased !p-2",
+        )}
       >
         <ThemeProvider
           attribute="class"
