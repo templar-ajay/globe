@@ -11,10 +11,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useSearchParams } from "next/navigation";
 
 export function ThemeModeToggle() {
   const { setTheme } = useTheme();
-
+  const searchParams = useSearchParams();
+  const theme = searchParams.get("theme") as string;
+  if (theme) {
+    return <></>;
+  }
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

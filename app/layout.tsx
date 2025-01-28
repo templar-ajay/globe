@@ -40,7 +40,7 @@ export default function RootLayout({
         className={cn(
           geistSans.variable,
           geistMono.variable,
-          "antialiased !p-2",
+          "antialiased min-h-screen"
         )}
       >
         <ThemeProvider
