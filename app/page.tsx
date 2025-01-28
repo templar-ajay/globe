@@ -1,4 +1,4 @@
-import { GlobeDemo } from "@/components/my-comps/my-globe";
+import { GlobeDemoWrapper } from "@/components/my-comps/my-globe";
 
 export default function Home({ searchParams }) {
   const showBorder = searchParams.border != "false";
@@ -7,7 +7,7 @@ export default function Home({ searchParams }) {
 
   return (
     <main className="h-full w-full">
-      <GlobeDemo
+      <GlobeDemoWrapper
         showBorder={showBorder}
         showText={showText}
         removeBackground={removeBackground}

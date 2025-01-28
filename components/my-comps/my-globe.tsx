@@ -1,6 +1,7 @@
 import Globe from "@/components/ui/globe";
 import { ThemeModeToggle } from "../theme-toggle";
 import { cn } from "@/lib/utils";
+import { Suspense } from "react";
 
 export function GlobeDemo({
   showText = true,
@@ -38,5 +39,25 @@ export function GlobeDemo({
         className={`pointer-events-none absolute inset-0 h-full bg-[radial-gradient(circle_at_50%_200%,rgba(0,0,0,0.2),rgba(255,255,255,0))]`}
       />
     </div>
+  );
+}
+
+export function GlobeDemoWrapper({
+  showText = true,
+  showBorder = true,
+  removeBackground,
+}: {
+  showText?: boolean;
+  showBorder?: boolean;
+  removeBackground?: boolean;
+}) {
+  return (
+    <Suspense>
+      <GlobeDemo
+        showText={showText}
+        showBorder={showBorder}
+        removeBackground={removeBackground}
+      />
+    </Suspense>
   );
 }
